@@ -54,7 +54,7 @@ public class WIndowBellowsAnimation : MonoBehaviour
             {
                 if (count > 0)
                 {
-                    child.localPosition = _recordPosition[_recordPosition.Count-1 - count];
+                    child.localPosition = _recordPosition[_recordPosition.Count-1 - count] + new Vector3(0,0,count*0.02f);
 
 
                 }

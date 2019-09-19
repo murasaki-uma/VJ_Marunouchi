@@ -31,7 +31,7 @@ public class RandomWalker : MonoBehaviour
 
         transform.localPosition = Vector3.Lerp(StartPos, EndPos, _threshold);
         var s = Mathf.PerlinNoise(transform.localPosition.x * NoiseScale, transform.localPosition.y * NoiseScale);
-        transform.localScale = _baseScale * (0.3f + s * 0.7f);
+        transform.localScale = _baseScale * (0.5f + s * 0.5f);
 
     }
 }
