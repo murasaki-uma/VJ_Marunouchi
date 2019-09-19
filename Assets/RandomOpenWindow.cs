@@ -19,6 +19,8 @@ public class RandomOpenWindow : MonoBehaviour
     private Vector3 _nextPositon = Vector3.zero;
     private Vector3 _startPosition = Vector3.zero;
     private Vector3 _baseScale;
+    public Material Material;
+    public Camera OffscreenCamera;
     void Start()
     {
         _lineRenderer = gameObject.AddComponent<LineRenderer>();
@@ -26,7 +28,7 @@ public class RandomOpenWindow : MonoBehaviour
         _lineRenderer.startWidth = 4;
         _lineRenderer.endWidth = 4;
         _lineRenderer.loop = true;
-
+        _lineRenderer.sharedMaterial = Material;
 
         _baseScale= BaseWindow.transform.localScale;
         _positions.Add(new Vector3(-_baseScale.x/2f,_baseScale.y/2f, 0f));
@@ -72,12 +74,14 @@ public class RandomOpenWindow : MonoBehaviour
             _positions[3] = (new Vector3(_baseScale.x/2f,_baseScale.y/2f, 0f) + _centerPositon);
                 
             _lineRenderer.SetPositions(_positions.ToArray());
+            OffscreenCamera.transform.localPosition = new Vector3(_centerPositon.x * 0.01f, _centerPositon.y * 0.01f+10f,-20);
             
             if (_threshold >= 1.0)
             {
                 _lineRenderer.positionCount = 0;
                 BaseWindow.SetActive(true);
                 BaseWindow.transform.localPosition = _centerPositon;
+                
             }
             else
             {
