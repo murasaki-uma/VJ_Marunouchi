@@ -81,6 +81,11 @@ public class BoidScript : MonoBehaviour, IObject {
 
 		// 加速度更新
 		acceleration = (Rule1Factor * Rule1 () + Rule2Factor * Rule2 () + Rule3Factor * Rule3 ()) / (Rule1Factor + Rule2Factor + Rule3Factor);
+
+		if (Vector3.Distance(Vector3.zero, Position) > 70)
+		{
+			Position = Vector3.zero;
+		}
 	}
 
 	private Vector3 Rule1 () {

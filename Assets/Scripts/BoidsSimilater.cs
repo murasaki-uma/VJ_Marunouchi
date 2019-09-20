@@ -4,15 +4,16 @@ using System.Collections.Generic;
 
 public class BoidsSimilater : MonoBehaviour {
 	// ステージ領域
-	public const float MinX = -10.0f;
-	public const float MaxX = 10.0f;
-	public const float MinY = 0.0f;
-	public const float MaxY = 20.0f;
-	public const float MinZ = -10.0f;
-	public const float MaxZ = 10.0f;
+	public const float MinX = -50.0f;
+	public const float MaxX = 50.0f;
+	public const float MinY = -50.0f;
+	public const float MaxY = 50.0f;
+	public const float MinZ = -50.0f;
+	public const float MaxZ = 50.0f;
 
 	public GameObject Boid;  // boidプレハブ
 
+	
 	// 壁となるPlane
 	private Plane Up = new Plane(new Vector3(0,-1,0), new Vector3(0,MaxY,0));
 	private Plane Down = new Plane(new Vector3(0,1,0), new Vector3(0,MinY,0));
@@ -21,12 +22,12 @@ public class BoidsSimilater : MonoBehaviour {
 	private Plane Forward = new Plane(new Vector3(0,0,-1), new Vector3(0,0,MaxZ));
 	private Plane Back = new Plane(new Vector3(0,0,1), new Vector3(0,0,MinZ));
 
-	public const int BoidCount = 6;  // boidの数
+	public int BoidCount = 12;  // boidの数
 	private List<BoidScript> boids = new List<BoidScript>();
 
-	public const float BoidMaxV = 6.0f;  // boidが出せる最高速度
-	public const float BoidMinV = 1.0f;  // boidが出せる最低速度
-	public const float BoidFOV = 10.0f;  // boidの視界
+	public const float BoidMaxV = 8.0f;  // boidが出せる最高速度
+	public const float BoidMinV = 6.0f;  // boidが出せる最低速度
+	public const float BoidFOV = 25.0f;  // boidの視界
 
 	// シングルトンアクセス
 	private static BoidsSimilater instance;

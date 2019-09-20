@@ -8,7 +8,7 @@
 
 			Tags {"LightMode" = "ForwardBase" "Queue"="Transparent" "IgnoreProjector"="True" "RenderType"="Transparent"}
 
-            LOD 100
+            LOD 200
 	
             ZWrite Off
             Blend SrcAlpha OneMinusSrcAlpha 
@@ -54,10 +54,10 @@
 				float3 pos = _PositionBuffer[instanceID];
 				float2 uv = _UVBuffer[instanceID];
 
-float y = v.vertex.y;
-float z = v.vertex.z;
-v.vertex.y = z;
-v.vertex.z = y;
+//float y = v.vertex.y;
+//float z = v.vertex.z;
+//v.vertex.y = z;
+//v.vertex.z = y;
 //                 v.vertex.z += sin(v.vertex.x * 5.0 + _Time.x * 5.0) * cos(v.vertex.z * 5.0 + _Time.x * 10.0);
 				float3 localPosition = v.vertex.xyz * _QuadScale;
 				float3 worldPosition = pos.xyz + localPosition;

@@ -69,13 +69,13 @@ public class TextTexelAnimator_GPU : MonoBehaviour
         float[] grays = new float[instanceCount];
         Vector2[] UVs = new Vector2[instanceCount];
         
-        var offsetPos = new Vector3(-resolution.x / 2f + pixelPitch / 2f, 0f, -resolution.y / 2f + pixelPitch / 2f) + transform.position;
+        var offsetPos = new Vector3(-resolution.x / 2f + pixelPitch / 2f,  -resolution.y / 2f + pixelPitch / 2f, 0) + transform.position;
         int count = 0;
         for (int x = 0; x < resolution.x; x += pixelPitch)
         {
             for (int y = 0; y < resolution.y; y += pixelPitch)
             {
-                positions[count] = new Vector3(x, 0, y) + offsetPos;
+                positions[count] = new Vector3(x,y,0) + offsetPos;
                 UVs[count] = new Vector2(x/resolution.x, y/resolution.y);
                 count++;
             }

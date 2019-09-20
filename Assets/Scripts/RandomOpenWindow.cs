@@ -38,7 +38,7 @@ public class RandomOpenWindow : MonoBehaviour
         
         
         BaseWindow.SetActive(false);
-        
+        OffscreenCamera.gameObject.SetActive(false);
         _nextPositon = new Vector3(Random.Range(-Resolution.x/2f,Resolution.x/2f), Random.Range(Resolution.y/2f,-Resolution.y/2), 0f);
         
 
@@ -78,6 +78,7 @@ public class RandomOpenWindow : MonoBehaviour
             
             if (_threshold >= 1.0)
             {
+                OffscreenCamera.Render();
                 _lineRenderer.positionCount = 0;
                 BaseWindow.SetActive(true);
                 BaseWindow.transform.localPosition = _centerPositon;
@@ -85,6 +86,7 @@ public class RandomOpenWindow : MonoBehaviour
             }
             else
             {
+//                OffscreenCamera.gameObject.SetActive(false);
                 _lineRenderer.positionCount = 4;
                 BaseWindow.SetActive(false);
             }
