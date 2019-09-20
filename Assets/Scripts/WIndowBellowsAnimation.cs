@@ -17,7 +17,7 @@ public class WIndowBellowsAnimation : MonoBehaviour
     {
         foreach (Transform a in transform)
         {
-            Debug.Log(a.name);
+//            Debug.Log(a.name);
         }
         _top = transform.GetChild(0);
     }
@@ -30,7 +30,7 @@ public class WIndowBellowsAnimation : MonoBehaviour
 
         if (Time.frameCount % UpdateFrameRate.FrameRate == 0)
         {
-            Debug.Log(Time.frameCount);
+//            Debug.Log(Time.frameCount);
             _recordPosition.Add(_top.localPosition);
             _recordScale.Add(_top.localScale);
         }
