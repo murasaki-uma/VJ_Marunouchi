@@ -86,6 +86,11 @@ public class BoidScript : MonoBehaviour, IObject {
 		{
 			Position = Vector3.zero;
 		}
+
+		if (position.y < -10)
+		{
+			position = Vector3.zero;
+		}
 	}
 
 	private Vector3 Rule1 () {

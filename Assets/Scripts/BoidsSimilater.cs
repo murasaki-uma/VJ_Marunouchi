@@ -6,7 +6,7 @@ public class BoidsSimilater : MonoBehaviour {
 	// ステージ領域
 	public const float MinX = -50.0f;
 	public const float MaxX = 50.0f;
-	public const float MinY = -50.0f;
+	public const float MinY = 0.0f;
 	public const float MaxY = 50.0f;
 	public const float MinZ = -50.0f;
 	public const float MaxZ = 50.0f;
@@ -57,10 +57,23 @@ public class BoidsSimilater : MonoBehaviour {
 			boids.Add (boid.GetComponent<BoidScript> ());
         }
     }
-        
+
+
+    public void InitPosition()
+    {
+	    for (int i = 0; i < BoidCount; i++)
+	    {
+		    boids[i].Position =
+			    new Vector3(Random.Range(MinX, MaxX), Random.Range(MinY, MaxY), Random.Range(MinZ, MaxZ));
+	    }
+    }
     // Update is called once per frame
     void Update () {
 
+	    if (Input.GetKeyDown("b"))
+	    {
+		    InitPosition();
+	    }
     }
 
 	public List<IObject> GetVirtualBoidsOnWall (BoidScript obj) {
